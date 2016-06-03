@@ -9,7 +9,7 @@ public class Map {
 	private boolean readOnly;
 
 	public boolean isEmpty() {
-		return size == 0;
+		return keys.isEmpty();
 	}
 
 	public void add(Object key, Object value) {
@@ -37,7 +37,7 @@ public class Map {
 	}
 
 	public int size() {
-		return size;
+		return keys.size();
 	}
 
 	public boolean remove(Object key) {
@@ -77,7 +77,7 @@ public class Map {
 	}
 
 	public int capacity() {
-		return keys.length;
+		return keys.capacity();
 	}
 
 	public void setReadOnly(boolean b) {
