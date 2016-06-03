@@ -32,14 +32,14 @@ public class Map {
 	public boolean remove(Object key) {
 		if (readOnly)
 			return false;
-		for (int i = 0; i < size; i++)
-			if (keys.equals(key)) {
-				keys.remove(key);
-				values.remove(key);
-				size--;
-				return true;
-			}
-		return false;
+		
+		int indexOfKey = find(key);
+		if (indexOfKey == -1)
+			return false;
+		
+		keys.removeElementAt(indexOfKey);
+		values.removeElementAt(indexOfKey);
+		return true;
 	}
 
 	public boolean contains(Object value) {

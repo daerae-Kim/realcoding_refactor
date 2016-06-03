@@ -77,7 +77,7 @@ public abstract class AbstractCollection {
 		return false;
 	}
 
-	private void removeElementAt(int i) {
+	public void removeElementAt(int i) {
 		elements[i] = null;
 		Object[] newElements = new Object[size - 1];
 		int k = 0;
