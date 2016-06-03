@@ -1,11 +1,8 @@
 package com.nts.cleancode.collections;
 
 public class Map {
-	private static int INITIAL_CAPACITY = 10;
-	protected List keys = new List();
-	protected List values = new List();
-	private int size = 0;
-	private int indexWhereKeyFound;
+	private List keys = new List();
+	private List values = new List();
 	private boolean readOnly;
 
 	public boolean isEmpty() {
