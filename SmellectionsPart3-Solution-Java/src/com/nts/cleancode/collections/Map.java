@@ -57,7 +57,7 @@ public class Map {
 	}
 
 	public boolean contains(Object value) {
-		for (int i = 0; i < size; i++)
+		for (int i = 0; i < values.size(); i++)
 			if ((value == null && values.get(i) == null)
 				|| (values.get(i) != null && values.get(i).equals(value)))
 				return true;
@@ -77,9 +77,10 @@ public class Map {
 	}
 
 	public Object get(Object key) {
-		if (!containsKey(key))
+		int indexOfKey = find(key);
+		if (indexOfKey == -1)
 			return null;
-		return values.equals(key);
+		return values.get(indexOfKey);
 	}
 
 	public int capacity() {
