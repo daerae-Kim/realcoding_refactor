@@ -14,29 +14,15 @@ public class Map {
 
 	public void add(Object key, Object value) {
 		if (!readOnly) {
-			for (int i = 0; i < size; i++)
-				if (keys.equals(key)) {
-					values.add(value);
-					return;
-				}
-
-			int newSize = size + 1;
-			if (newSize > keys.length) {
-				Object[] newKeys = new Object[keys.length + INITIAL_CAPACITY];
-				Object[] newValues = new Object[keys.length + INITIAL_CAPACITY];
-				System.arraycopy(keys, 0, newKeys, 0, size);
-				System.arraycopy(values, 0, newValues, 0, size);
-				keys = newKeys;
-				values = newValues;
+			int indexOfKey = find(key);
+			if (indexOfKey != -1) 
+				values.set(indexOfKey, value);
+			else {
+				keys.add(key);
+				values.add(value);
 			}
-
-			keys.add(key);
-			values.add(value);
-			size++;
 		}
-		else {
-			return;
-		}
+		
 	}
 
 	public int size() {
