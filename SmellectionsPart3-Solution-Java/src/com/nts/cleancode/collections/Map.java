@@ -34,6 +34,9 @@ public class Map {
 			values.add(value);
 			size++;
 		}
+		else {
+			return;
+		}
 	}
 
 	public int size() {
@@ -60,14 +63,17 @@ public class Map {
 				return true;
 		return false;
 	}
+	
+	private int find(Object key){
+		for(int i = 0 ; i < keys.size(); i++)
+			if(keys.get(i) != null && keys.get(i).equals(key))
+				return i;
+		return -1;
+		
+	}
 
 	public boolean containsKey(Object key) {
-		for (int i = 0; i < size; i++)
-			if (keys.get(i) != null && keys.get(i).equals(key)) {
-				indexWhereKeyFound = i;
-				return true;
-			}
-		return false;
+		return find(key) != -1;
 	}
 
 	public Object get(Object key) {
